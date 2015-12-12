@@ -1,0 +1,13 @@
+<!-- 系统启动所需基础数据的源 -->
+
+<datasources>
+    <datasource name="aicds"
+                jndi-name="jdbc/aicds"
+                driver-class="com.sybase.jdbc2.jdbc.SybXADataSource"
+                url="jdbc:sybase:Tds:10.1.1.39:7220/aicbiz?charset=cp936"
+                min-spare-connections="150" max-spare-connections="300"  idle-timeout="300">
+        <property name="user" value="sa"/>
+        <property name="password" value="sb0525"/>
+        <property name="JCONNECT_VERSION" value="6"/>
+    </datasource>
+</datasources>

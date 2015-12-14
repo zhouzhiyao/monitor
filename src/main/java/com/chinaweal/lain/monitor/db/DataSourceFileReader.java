@@ -1,7 +1,7 @@
 package com.chinaweal.lain.monitor.db;
 
 
-import com.chinaweal.lain.monitor.model.DataSourceConfigModel;
+import com.chinaweal.lain.monitor.model.SourceConfigModel;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Node;
@@ -44,7 +44,7 @@ public class DataSourceFileReader {
             while (dataSourceIterator.hasNext()) {
                 Node node = (Node) dataSourceIterator.next();
                 String area = node.getText();
-                DataSourceConfigModel model = new DataSourceConfigModel();
+                SourceConfigModel model = new SourceConfigModel();
 //                model.setUrl(node.valueOf("@url"));
 
                 String name = node.selectSingleNode("/property/@name").getText();

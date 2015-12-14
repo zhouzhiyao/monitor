@@ -12,9 +12,6 @@ import java.util.Map;
  * Date: 15-12-8
  */
 public class DBUtils {
-    private String ip;
-    private String port;
-    private String dbName;
     private String url;
     private String userName;
     private String password;
@@ -26,7 +23,7 @@ public class DBUtils {
     }
 
 
-    private Connection getConnectionFromSybase()
+    public Connection getConnectionFromSybase()
             throws SQLException {
         Connection conn = null;
         try {
@@ -91,36 +88,5 @@ public class DBUtils {
             record.put(columnName, obj);
         }
         return record;
-    }
-
-    /**
-     * 获取只有一个值的数据统计
-     *
-     * @param SQL
-     * @return
-     */
-    public long getSumResult(String SQL) throws Throwable{
-        Connection con = null;
-        Statement stat = null;
-        ResultSet resultSet = null;
-        long sum = 0;
-        try {
-            con = getConnectionFromSybase();
-            stat = con.createStatement();
-            resultSet = stat.executeQuery(SQL);
-            if(resultSet.next())
-                sum = resultSet.getLong(1);
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            try {
-                if (resultSet != null) resultSet.close();
-                if (stat != null) stat.close();
-                if (con != null) con.close();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return sum;
     }
 }

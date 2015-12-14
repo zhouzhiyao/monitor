@@ -5,13 +5,14 @@ package com.chinaweal.lain.monitor.model;
  * User: Lain
  * Date: 15-12-8
  */
-public class DataSourceConfigModel {
+public class SourceConfigModel {
     private String tye;
     private String discription;
-    private String dbName;
     private String area;
+    private String protocol;
     private String ip;
     private String port;
+    private String target;
     private String userName;
     private String password;
 
@@ -31,20 +32,20 @@ public class DataSourceConfigModel {
         this.discription = discription;
     }
 
-    public String getDbName() {
-        return dbName;
-    }
-
-    public void setDbName(String dbName) {
-        this.dbName = dbName;
-    }
-
     public String getArea() {
         return area;
     }
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
     }
 
     public String getIp() {
@@ -61,6 +62,14 @@ public class DataSourceConfigModel {
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public String getUserName() {

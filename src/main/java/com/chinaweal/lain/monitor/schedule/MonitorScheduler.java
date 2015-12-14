@@ -5,6 +5,8 @@ import com.chinaweal.lain.monitor.monitor.MonitorConfig;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -13,9 +15,11 @@ import java.util.Set;
  * User: Lain
  * Date: 15-12-10
  */
-public class MonitorScheduler {
+public class MonitorScheduler extends HttpServlet {
 
-    public static void doMonitor() {
+    @Override
+    public void init() throws ServletException {
+        super.init();
         try {
             org.quartz.Scheduler scheduler = new StdSchedulerFactory().getScheduler();
             //定时任务的初始化

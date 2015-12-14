@@ -1,5 +1,8 @@
 package com.chinaweal.lain.monitor.utils;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Lain
@@ -7,7 +10,7 @@ package com.chinaweal.lain.monitor.utils;
  */
 public class MonitorUtils {
     /**
-     * 平凑sybase源的url
+     * 拼接sybase源的url
      *
      * @param ip
      * @param port
@@ -16,5 +19,17 @@ public class MonitorUtils {
      */
     public static String genSybaseURL(String ip, String port, String dbName) {
         return "jdbc:sybase:Tds:" + ip + ":" + port + "/" + dbName + "?charset=cp936";
+    }
+
+    public static boolean isURLConnected(String address) {
+        try {
+            URL url = new URL(address);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.connect();
+            if (con.getResponseCode() == 200) return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
